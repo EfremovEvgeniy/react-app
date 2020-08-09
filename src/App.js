@@ -5,9 +5,32 @@ import './App.css';
 const App = () => {
   return (
     <div className="App">
-      <h1>Hellow World!</h1>
+      <Header />
+      <Technologies />
     </div>
   );
+}
+
+const Header = () => {
+  return (
+    <div>
+      <a href="#">Home</a>
+      <a href="#">New feed</a>
+      <a href="#">New messages</a>
+    </div>
+  );
+}
+
+const Technologies = () => {
+  return (
+    <div>
+      <ul>
+        <li>css</li>
+        <li>html</li>
+        <li>js</li>
+      </ul>
+    </div>
+  )
 }
 
 export default App;
