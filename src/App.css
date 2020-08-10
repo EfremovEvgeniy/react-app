@@ -2,18 +2,25 @@
   width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 80px 500px;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
+  grid-gap: 5px;
   grid-template-areas: 'h h' 'n c';
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .header {
   grid-area: h;
-  background-color: green;
+  background-color: #3299a8;
+  padding: 10px 20px;
 }
 
-.header img {
+.header .logo {
   width: 60px;
   height: 60px;
 }
@@ -21,18 +28,71 @@
 .nav {
   grid-area: n;
   background-color: grey;
+  padding: 20px;
 }
-
+.nav .menu {
+  text-align: center;
+}
 .nav a {
   text-decoration: none;
   color: black;
+  text-transform: uppercase;
+  color: white;
 }
-
+.nav a:hover {
+  text-decoration: underline;
+  color: #b7c4b8;
+}
+.nav a:active {
+  text-decoration: underline;
+  color: #b7c4b8;
+}
+.nav .menu {
+  margin-top: 20px;
+}
+.nav .menu:last-child {
+  margin-top: 60px;
+}
 .content {
   grid-area: c;
-  background-color: indianred;
+  background-color: #27a0ab;
+  padding: 20px;
+  color: white;
+  font-size: 16px;
 }
-.content img {
-  width: 100%;
+
+.ava-container .description {
+  padding: 20px;
+  margin: 0;
+}
+.ava {
+  float: left;
+}
+.description {
+  float: left;
+}
+.description p {
+  font-size: 20px;
+}
+.ava img {
+  width: 100px;
   height: 100px;
+}
+.posts-container {
+  margin: 20px 0;
+}
+.post-title {
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+.new-post {
+  margin: 20px 0;
+}
+.all-posts {
+  margin: 20px 0;
+}
+.all-posts .post {
+  margin: 20px 0;
 }
