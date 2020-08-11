@@ -23,7 +23,7 @@ a {
   width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 80px 500px;
+  grid-template-rows: 80px 100%;
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
   grid-template-areas: 'h h' 'n c';
