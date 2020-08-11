@@ -1,0 +1,25 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: 50px 50px auto;
+  grid-template-areas: "title" "new" "posts";
+}
+.title {
+  grid-area: title;
+  text-align: center;
+  padding: 0px 20px;
+  span {
+    font-size: 20px;
+  }
+}
+.new {
+  grid-area: new;
+  padding: 20px;
+  textarea {
+    width: 200px;
+    height: 30px;
+  }
+}
+.posts {
+  grid-area: posts;
+  padding: 0px 20px;
+}

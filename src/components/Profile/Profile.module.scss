@@ -1,0 +1,31 @@
+main {
+  background-color: #27a0ab;
+  color: white;
+  font-size: 16px;
+}
+.wrapper {
+    grid-area: c;
+    display: grid;
+    grid-template-rows: 100px;
+    grid-template-columns: 100px 1fr;
+    grid-template-areas: 'ava description';
+    padding: 20px;
+  }
+
+.ava {
+  grid-area: ava;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+.description {
+  grid-area: description;
+  padding: 20px;
+  margin: 0;
+  p {
+    font-size: 20px;
+  }
+}
+
+  

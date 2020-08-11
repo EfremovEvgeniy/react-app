@@ -13,12 +13,6 @@ a {
   }
 }
 
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .app-wrapper {
   width: 1200px;
   margin: 0 auto;
@@ -26,5 +20,5 @@ a {
   grid-template-rows: 80px 100%;
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
-  grid-template-areas: 'h h' 'n c';
+  grid-template-areas: "h h" "n c";
 }
