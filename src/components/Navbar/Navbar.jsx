@@ -17,7 +17,7 @@ const Navbar = () => {
         <a href="/music">Music</a>
       </div>
       <div className={styles.menu}>
-        <a href="/setting">Settings</a>
+        <a href="/settings">Settings</a>
       </div>
     </nav>
   );
