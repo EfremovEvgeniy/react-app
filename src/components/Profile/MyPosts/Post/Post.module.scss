@@ -1,7 +1,6 @@
 .post {
   margin: 20px 0;
-  display: grid;
-  grid-template-columns: 50px 1fr;
+  display: flex;
 }
 .ava {
   img {

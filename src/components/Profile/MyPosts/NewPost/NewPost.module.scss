@@ -1,11 +1,10 @@
 .new {
-  grid-area: new;
+  display: flex;
   padding: 20px;
-  position: relative;
+  align-items: center;
+  margin-top: 10px;
   button {
-    position: absolute;
-    left: 240px;
-    margin-top: 2px;
+    margin-left: 20px;
     width: 150px;
     height: 30px;
   }

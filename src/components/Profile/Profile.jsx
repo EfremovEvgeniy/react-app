@@ -5,14 +5,16 @@ import MyPosts from "./MyPosts/MyPosts";
 const Profile = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.ava}>
-        <img
-          src="https://avatarfiles.alphacoders.com/693/69306.jpg"
-          alt="avatar"
-        />
-      </div>
-      <div className={styles.description}>
-        <p>My profile</p>
+      <div className={styles.profile}>
+        <div className={styles.ava}>
+          <img
+            src="https://avatarfiles.alphacoders.com/693/69306.jpg"
+            alt="avatar"
+          />
+        </div>
+        <div className={styles.description}>
+          <p>My profile</p>
+        </div>
       </div>
       <div className={styles.posts}>
         <MyPosts />
