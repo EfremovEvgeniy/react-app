@@ -2,6 +2,7 @@
   display: grid;
   grid-template-areas: "title" "new" "posts";
 }
+
 .title {
   grid-area: title;
   text-align: center;
@@ -11,39 +12,9 @@
     margin: 0;
   }
 }
-.new {
-  grid-area: new;
-  padding: 20px;
-  position: relative;
-  textarea {
-    width: 200px;
-    height: 30px;
-    outline: none;
-    resize: none;
-    white-space: nowrap;
-    overflow: auto;
-    border: 1px solid #526163;
-  }
-  button {
-    background-color: #00c960;
-    position: absolute;
-    left: 240px;
-    color: black;
-    text-transform: uppercase;
-    font-weight: 700;
-    width: 100px;
-    height: 30px;
-    border: 1px solid white;
-    border-radius: 3px;
-    &:hover {
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-    }
-    &:active {
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-    }
-  }
-}
+
 .posts {
   grid-area: posts;
   padding: 0px 20px;
+  height: 400px;
 }

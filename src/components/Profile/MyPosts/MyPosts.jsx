@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./MyPosts.module.scss";
 import Post from "./Post/Post";
+import NewPost from "./NewPost/NewPost";
 
 const MyPosts = () => {
   return (
@@ -8,10 +9,7 @@ const MyPosts = () => {
       <div className={styles.title}>
         <p>My posts</p>
       </div>
-      <div className={styles.new}>
-        <textarea></textarea>
-        <button>Add posts</button>
-      </div>
+      <NewPost />
       <div className={styles.posts}>
         <Post text="new post" />
         <Post text="second post" />

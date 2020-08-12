@@ -13,8 +13,38 @@ a {
   }
 }
 
+button {
+  background-color: #00c960;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid white;
+  border-radius: 3px;
+  &:hover {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  }
+  &:active {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+textarea {
+  width: 200px;
+  height: 30px;
+  outline: none;
+  resize: none;
+  white-space: nowrap;
+  overflow: auto;
+  border: 1px solid #526163;
+  border-radius: 5px;
+  &:focus {
+    border: 1px solid white;
+    box-shadow: 1px 1px 2px white;
+  }
+}
+
 .app-wrapper {
-  width: 1200px;
+  width: auto;
   margin: 0 auto;
   display: grid;
   grid-template-rows: auto auto;

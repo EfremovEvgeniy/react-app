@@ -1,0 +1,12 @@
+.new {
+  grid-area: new;
+  padding: 20px;
+  position: relative;
+  button {
+    position: absolute;
+    left: 240px;
+    margin-top: 2px;
+    width: 100px;
+    height: 30px;
+  }
+}
