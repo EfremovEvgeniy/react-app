@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, Redirect } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
@@ -17,6 +17,9 @@ const App = () => {
         <Navbar />
         <main>
           <div className="content">
+            <Route exact path="/">
+              <Redirect to="/profile" />
+            </Route>
             <Route path="/profile" component={Profile} />
             <Route path="/dialogs" component={Dialogs} />
             <Route path="/news" component={News} />
