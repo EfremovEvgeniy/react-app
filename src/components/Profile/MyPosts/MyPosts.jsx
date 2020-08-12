@@ -1,20 +1,20 @@
 import React from "react";
-import s from "./MyPosts.module.scss";
+import styles from "./MyPosts.module.scss";
 import Post from "./Post/Post";
 
 const MyPosts = () => {
   return (
-    <div className={s.wrapper}>
-      <div className={s.title}>
-        <span>My posts</span>
+    <div className={styles.wrapper}>
+      <div className={styles.title}>
+        <p>My posts</p>
       </div>
-      <div className={s.new}>
+      <div className={styles.new}>
         <textarea></textarea>
         <button>Add posts</button>
       </div>
-      <div className={s.posts}>
-        <Post />
-        <Post />
+      <div className={styles.posts}>
+        <Post text="new post" />
+        <Post text="second post" />
       </div>
     </div>
   );

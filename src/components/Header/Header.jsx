@@ -1,12 +1,12 @@
 import React from "react";
-import s from "./Header.module.scss";
+import styles from "./Header.module.scss";
 
 const Header = () => {
   return (
-    <header className={s.header}>
+    <header className={styles.header}>
       <a href="http://localhost:3000/">
         <img
-          className={s.logo}
+          className={styles.logo}
           src="https://cdn.worldvectorlogo.com/logos/react.svg"
           alt=""
         />
