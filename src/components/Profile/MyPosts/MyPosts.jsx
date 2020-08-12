@@ -11,8 +11,8 @@ const MyPosts = () => {
       </div>
       <NewPost />
       <div className={styles.posts}>
-        <Post text="new post" />
-        <Post text="second post" />
+        <Post text="My first post" />
+        <Post text="My second post" />
       </div>
     </div>
   );
