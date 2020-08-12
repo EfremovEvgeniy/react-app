@@ -8,6 +8,7 @@
   padding: 0px 20px;
   p {
     font-size: 20px;
+    margin: 0;
   }
 }
 .new {
@@ -16,7 +17,7 @@
   position: relative;
   textarea {
     width: 200px;
-    height: 100%;
+    height: 30px;
     outline: none;
     resize: none;
     white-space: nowrap;
@@ -24,21 +25,21 @@
     border: 1px solid #526163;
   }
   button {
-    background-color: #2ba7ba;
+    background-color: #00c960;
     position: absolute;
     left: 240px;
-    color: #ffffff;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 700;
     width: 100px;
     height: 30px;
-    border: 1px solid #526163;
+    border: 1px solid white;
     border-radius: 3px;
     &:hover {
-      box-shadow: 1px 1px 5px black;
-      border: none;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
     }
     &:active {
-      box-shadow: 1px 1px 5px black;
-      border: none;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
     }
   }
 }

@@ -2,14 +2,14 @@ a {
   text-decoration: none;
   color: black;
   text-transform: uppercase;
-  color: white;
+  color: #83f0dc;
   &:hover {
     text-decoration: underline;
-    color: #b7c4b8;
+    color: #20e77b;
   }
   &:active {
     text-decoration: underline;
-    color: #b7c4b8;
+    color: #20e77b;
   }
 }
 
@@ -17,7 +17,7 @@ a {
   width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 80px auto;
+  grid-template-rows: auto auto;
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
   grid-template-areas:
