@@ -44,8 +44,6 @@ textarea {
 }
 
 .app-wrapper {
-  width: auto;
-  margin: 0 auto;
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 2fr 10fr;
@@ -53,4 +51,14 @@ textarea {
   grid-template-areas:
     "header header"
     "navbar content";
+}
+
+main {
+  background-color: #283035;
+  color: white;
+  font-size: 16px;
+}
+
+.content {
+  grid-area: content;
 }
