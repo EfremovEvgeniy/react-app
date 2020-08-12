@@ -5,7 +5,9 @@ const NewPost = (props) => {
   return (
     <div className={styles.new}>
       <textarea placeholder="Put your post here" maxLength="250"></textarea>
-      <button>Add posts</button>
+      <button>
+        <span>Add posts</span>
+      </button>
     </div>
   );
 };

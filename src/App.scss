@@ -15,16 +15,40 @@ a {
 
 button {
   background-color: #00c960;
-  color: black;
+  color: white;
   text-transform: uppercase;
   font-weight: 600;
   border: 1px solid white;
   border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.5s;
+  text-align: center;
   &:hover {
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    border: 2px solid white;
   }
   &:active {
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+  span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: -1px;
+    right: -10px;
+    transition: 0.5s;
+  }
+  &:hover span {
+    padding-right: 15px;
+  }
+  &:hover span:after {
+    opacity: 1;
+    right: 0;
   }
 }
 
@@ -39,7 +63,7 @@ textarea {
   border-radius: 5px;
   &:focus {
     border: 1px solid white;
-    box-shadow: 1px 1px 2px white;
+    box-shadow: 1px 1px 1px white;
   }
 }
 
