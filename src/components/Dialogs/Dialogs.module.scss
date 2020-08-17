@@ -1,0 +1,54 @@
+.title p {
+  text-align: center;
+  font-size: 20px;
+}
+.dialogs {
+  display: flex;
+}
+.dialogItems {
+  flex-basis: 15%;
+  margin-left: 10px;
+}
+.dialog {
+  padding: 10px;
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+  .customer {
+    margin-left: 20px;
+    a {
+      color: #24d0fd;
+    }
+  }
+  .ava {
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+.messages {
+  flex-basis: 40%;
+  margin-left: 10px;
+}
+.message {
+  padding: 20px;
+  padding-top: 0px;
+  background-color: #101217;
+  margin-bottom: 5px;
+  border-radius: 12px;
+  border-top: 1px solid #48545e;
+  position: relative;
+}
+.message::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-color: #101217;
+  background-color: #101217;
+  transform: rotate(45deg);
+  width: 5px;
+  height: 5px;
+  left: -6px;
+  top: 14px;
+}
