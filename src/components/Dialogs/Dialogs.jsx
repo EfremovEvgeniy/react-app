@@ -29,6 +29,17 @@ const Message = (props) => {
 };
 
 const Dialogs = (props) => {
+  let dialogsData = [
+    { id: 1, name: "Efrem" },
+    { id: 2, name: "Artur" },
+    { id: 3, name: "Oleg" },
+  ];
+  let messagesData = [
+    { id: 1, text: "Hi" },
+    { id: 2, text: "Yo" },
+    { id: 3, text: "Privet" },
+  ];
+
   return (
     <div>
       <div className={styles.title}>
@@ -41,9 +52,9 @@ const Dialogs = (props) => {
           <Dialog name="Oleg" id="3" />
         </div>
         <div className={styles.messages}>
-          <Message text="Hi" />
-          <Message text="Yo" />
-          <Message text="Privet" />
+          <Message text="Hi" id="1" />
+          <Message text="Yo" id="2" />
+          <Message text="Privet" id="3" />
         </div>
       </div>
     </div>

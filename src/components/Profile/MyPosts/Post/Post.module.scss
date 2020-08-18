@@ -12,4 +12,9 @@
   p {
     padding-left: 20px;
   }
+  p::after {
+    display: inline-block;
+    content: "\e634";
+    margin-left: 20px;
+  }
 }
