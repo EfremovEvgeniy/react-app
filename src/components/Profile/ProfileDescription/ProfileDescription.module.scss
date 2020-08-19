@@ -1,0 +1,20 @@
+.profile {
+  display: flex;
+  padding-left: 20px;
+}
+
+.ava {
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid white;
+  }
+}
+.description {
+  padding: 20px;
+  margin: 0;
+  p {
+    font-size: 20px;
+  }
+}
