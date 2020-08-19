@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import NewPost from "./NewPost/NewPost";
 
 const MyPosts = (props) => {
-  let postsElements = props.postsData.map((p) => (
+  let postsElements = props.posts.map((p) => (
     <Post text={p.text} id={p.id} likesCount={p.likesCount} />
   ));
 

@@ -4,38 +4,11 @@ import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-  let dialogs = [
-    {
-      id: 1,
-      name: "Efrem",
-      avaUrl:
-        "https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png",
-    },
-    {
-      id: 2,
-      name: "Artur",
-      avaUrl:
-        "https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png",
-    },
-    {
-      id: 3,
-      name: "Oleg",
-      avaUrl:
-        "https://cdn.iconscout.com/icon/free/png-256/avatar-366-456318.png",
-    },
-  ];
-
-  let dialogsElements = dialogs.map((d) => (
+  let dialogsElements = props.dialogs.map((d) => (
     <Dialog name={d.name} id={d.id} avaUrl={d.avaUrl} />
   ));
 
-  let messages = [
-    { id: 1, text: "Hi" },
-    { id: 2, text: "Yo" },
-    { id: 3, text: "Privet" },
-  ];
-
-  let messagesElements = messages.map((m) => (
+  let messagesElements = props.messages.map((m) => (
     <Message text={m.text} id={m.id} />
   ));
 
