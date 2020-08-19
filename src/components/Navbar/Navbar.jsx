@@ -1,22 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.scss";
+import MenuItem from "./MenuItem/MenuItem";
+import Friends from "./Friends/Friends";
 
-const MenuItem = (props) => {
-  return (
-    <div className={styles.menu}>
-      <NavLink to={props.path}>{props.title}</NavLink>
-    </div>
-  );
-};
-
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav className={styles.nav}>
       <MenuItem path="/profile" title="Profile" />
       <MenuItem path="/dialogs" title="Dialogs" />
       <MenuItem path="/news" title="News" />
       <MenuItem path="/music" title="Music" />
+      <Friends friends={props.state.friends} />
       <MenuItem path="/settings" title="Settings" />
     </nav>
   );

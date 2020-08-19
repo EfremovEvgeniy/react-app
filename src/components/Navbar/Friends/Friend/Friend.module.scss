@@ -1,0 +1,13 @@
+.friend {
+  flex-grow: 1;
+  text-align: center;
+
+  .ava img {
+    weight: 50px;
+    height: 50px;
+  }
+
+  .name {
+    margin-top: 10px;
+  }
+}
