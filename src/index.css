@@ -4,6 +4,12 @@
   font-weight: 400;
   src: url("./fonts/ShareTechMono-Regular.ttf");
 }
+@font-face {
+  font-family: "Themify";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/themify.ttf");
+}
 
 body {
   margin: 0;

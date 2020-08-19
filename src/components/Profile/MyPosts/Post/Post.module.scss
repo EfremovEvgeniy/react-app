@@ -10,6 +10,35 @@
 }
 .message {
   p {
+    display: flex;
     padding-left: 20px;
+  }
+  div {
+    display: flex;
+  }
+  .like {
+    margin-left: 10px;
+    p {
+      padding-left: 25px;
+    }
+    a {
+      display: inline-block;
+      margin-left: 10px;
+      color: white;
+    }
+    a span {
+      line-height: 50px;
+      display: inline-block;
+      &::before {
+        color: #e8436c;
+        display: inline-block;
+        font-family: "Themify";
+        content: "\e634";
+        margin-right: 5px;
+      }
+      &:hover::before {
+        transform: scale(1.1);
+      }
+    }
   }
 }

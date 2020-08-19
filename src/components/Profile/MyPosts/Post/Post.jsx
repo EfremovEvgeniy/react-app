@@ -11,7 +11,14 @@ const Post = (props) => {
         />
       </div>
       <div className={styles.message}>
-        <p>{props.text}</p>
+        <div>
+          <p>{props.text}</p>
+          <div className={styles.like}>
+            <a href="#">
+              <span>{props.likesCount}</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
