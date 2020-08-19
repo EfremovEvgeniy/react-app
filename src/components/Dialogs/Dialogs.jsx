@@ -26,16 +26,40 @@ const Message = (props) => {
 };
 
 const Dialogs = (props) => {
-  let dialogsData = [
-    { id: 1, name: "Efrem" },
-    { id: 2, name: "Artur" },
-    { id: 3, name: "Oleg" },
+  let dialogs = [
+    {
+      id: 1,
+      name: "Efrem",
+      avaUrl:
+        "https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png",
+    },
+    {
+      id: 2,
+      name: "Artur",
+      avaUrl:
+        "https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png",
+    },
+    {
+      id: 3,
+      name: "Oleg",
+      avaUrl:
+        "https://cdn.iconscout.com/icon/free/png-256/avatar-366-456318.png",
+    },
   ];
-  let messagesData = [
+
+  let dialogsElements = dialogs.map((d) => (
+    <Dialog name={d.name} id={d.id} avaUrl={d.avaUrl} />
+  ));
+
+  let messages = [
     { id: 1, text: "Hi" },
     { id: 2, text: "Yo" },
     { id: 3, text: "Privet" },
   ];
+
+  let messagesElements = messages.map((m) => (
+    <Message text={m.text} id={m.id} />
+  ));
 
   return (
     <div>
@@ -43,28 +67,8 @@ const Dialogs = (props) => {
         <p>Dialogs</p>
       </div>
       <div className={styles.dialogs}>
-        <div className={styles.dialogItems}>
-          <Dialog
-            name="Efrem"
-            id="1"
-            avaUrl="https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png"
-          />
-          <Dialog
-            name="Artur"
-            id="2"
-            avaUrl="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png"
-          />
-          <Dialog
-            name="Oleg"
-            id="3"
-            avaUrl="https://cdn.iconscout.com/icon/free/png-256/avatar-366-456318.png"
-          />
-        </div>
-        <div className={styles.messages}>
-          <Message text="Hi" id="1" />
-          <Message text="Yo" id="2" />
-          <Message text="Privet" id="3" />
-        </div>
+        <div className={styles.dialogItems}>{dialogsElements}</div>
+        <div className={styles.messages}>{messagesElements}</div>
       </div>
     </div>
   );
