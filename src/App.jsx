@@ -14,7 +14,7 @@ const App = (props) => {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar state={props.state.navbar} />
+        <Navbar navbar={props.state.navbar} />
         <main>
           <div className="content">
             <Route exact path="/">
@@ -24,20 +24,16 @@ const App = (props) => {
               path="/profile"
               render={() => (
                 <Profile
-                  state={props.state.profilePage}
+                  profilePage={props.state.profilePage}
                   addPost={props.addPost}
+                  updateNewPostText={props.updateNewPostText}
                 />
               )}
             />
             <Route
               exact
               path="/dialogs"
-              render={() => (
-                <Dialogs
-                  state={props.state.dialogsPage}
-                  state={props.state.dialogsPage}
-                />
-              )}
+              render={() => <Dialogs dialogsPage={props.state.dialogsPage} />}
             />
             <Route path="/news" render={() => <News />} />
             <Route path="/music" render={() => <Music />} />

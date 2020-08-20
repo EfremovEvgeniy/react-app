@@ -7,13 +7,16 @@ const MyPosts = (props) => {
   let postsElements = props.posts.map((p) => (
     <Post text={p.text} id={p.id} likesCount={p.likesCount} />
   ));
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
         <p>My posts</p>
       </div>
-      <NewPost addPost={props.addPost} />
+      <NewPost
+        addPost={props.addPost}
+        newPostText={props.newPostText}
+        updateNewPostText={props.updateNewPostText}
+      />
       <div className={styles.posts}>{postsElements}</div>
     </div>
   );

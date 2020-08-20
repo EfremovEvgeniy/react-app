@@ -6,6 +6,7 @@ let state = {
             { id: 1, text: "My first post", likesCount: 1 },
             { id: 2, text: "My second post", likesCount: 5 },
         ],
+        newPostText: '',
     },
     dialogsPage: {
         dialogs: [
@@ -40,10 +41,14 @@ let state = {
     }
 }
 
-export let addPost = (postText) => {
-    let newPost = { id: 5, text: postText, likesCount: 0 };
+export let addPost = () => {
+    let newPost = { id: 5, text: state.profilePage.newPostText, likesCount: 0 };
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderAllPage(state);
 }
-
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderAllPage(state);
+}
 export default state;

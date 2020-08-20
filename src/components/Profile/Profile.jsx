@@ -10,7 +10,12 @@ const Profile = (props) => {
         avaUrl="https://avatarfiles.alphacoders.com/693/69306.jpg"
         name="Efremov Evgenii"
       />
-      <MyPosts posts={props.state.posts} addPost={props.addPost} />
+      <MyPosts
+        posts={props.profilePage.posts}
+        addPost={props.addPost}
+        updateNewPostText={props.updateNewPostText}
+        newPostText={props.profilePage.newPostText}
+      />
     </div>
   );
 };

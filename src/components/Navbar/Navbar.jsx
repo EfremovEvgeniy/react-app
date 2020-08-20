@@ -10,7 +10,7 @@ const Navbar = (props) => {
       <MenuItem path="/dialogs" title="Dialogs" />
       <MenuItem path="/news" title="News" />
       <MenuItem path="/music" title="Music" />
-      <Friends friends={props.state.friends} />
+      <Friends friends={props.navbar.friends} />
       <MenuItem path="/settings" title="Settings" />
     </nav>
   );

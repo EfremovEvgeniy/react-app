@@ -5,8 +5,11 @@ const NewPost = (props) => {
   let newPostElement = React.createRef();
   let addPost = () => {
     let text = newPostElement.current.value;
-    props.addPost(text);
-    newPostElement.current.value = "";
+    props.addPost();
+  };
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
   };
 
   return (
@@ -15,7 +18,9 @@ const NewPost = (props) => {
         placeholder="Put your post here"
         maxLength="250"
         ref={newPostElement}
-      ></textarea>
+        value={props.newPostText}
+        onChange={onPostChange}
+      />
       <button onClick={addPost}>
         <span>Add posts</span>
       </button>
