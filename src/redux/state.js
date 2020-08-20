@@ -1,3 +1,5 @@
+import { rerenderAllPage } from "../render";
+
 let state = {
     profilePage: {
         posts: [
@@ -41,6 +43,7 @@ let state = {
 export let addPost = (postText) => {
     let newPost = { id: 5, text: postText, likesCount: 0 };
     state.profilePage.posts.push(newPost);
+    rerenderAllPage(state);
 }
 
 export default state;
