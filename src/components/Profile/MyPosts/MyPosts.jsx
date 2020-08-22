@@ -12,11 +12,7 @@ const MyPosts = (props) => {
       <div className={styles.title}>
         <p>My posts</p>
       </div>
-      <NewPost
-        addPost={props.addPost}
-        newPostText={props.newPostText}
-        updateNewPostText={props.updateNewPostText}
-      />
+      <NewPost newPostText={props.newPostText} store={props.store} />
       <div className={styles.posts}>{postsElements}</div>
     </div>
   );

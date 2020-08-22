@@ -3,20 +3,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
-import state, { subscribe, addPost, updateNewPostText } from './redux/state'
+import store from './redux/store'
 
 let rerenderAllPage = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} addPost={addPost} updateNewPostText={updateNewPostText} />
+            <App state={store.getState()} store={store} />
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
 
 
-rerenderAllPage(state);
-subscribe(rerenderAllPage);
+rerenderAllPage(store.getState());
+store.subscribe(rerenderAllPage);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
