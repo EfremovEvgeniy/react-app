@@ -12,7 +12,7 @@ const Profile = (props) => {
       />
       <MyPosts
         posts={props.profilePage.posts}
-        store={props.store}
+        dispatch={props.dispatch}
         newPostText={props.profilePage.newPostText}
       />
     </div>

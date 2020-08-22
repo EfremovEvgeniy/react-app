@@ -2,15 +2,16 @@ let store = {
     getState() {
         return this._state;
     },
-    addPost() {
-        let newPost = { id: 5, text: this._state.profilePage.newPostText, likesCount: 0 };
-        this._pushNewPost(newPost);
-        this._updateStateNewPostText('');
-        this._subscriber(this._state);
-    },
-    updateNewPostText(newText) {
-        this._updateStateNewPostText(newText);
-        this._subscriber(this._state);
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = { id: 5, text: this._state.profilePage.newPostText, likesCount: 0 };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._subscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText;
+            this._subscriber(this._state);
+        }
     },
     subscribe(observer) {
         this._subscriber = observer;
@@ -57,12 +58,6 @@ let store = {
                 { id: 3, name: "Anton", avaUrl: "https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png" },
             ]
         }
-    },
-    _pushNewPost(newPost) {
-        this._state.profilePage.posts.push(newPost);
-    },
-    _updateStateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
     },
 }
 
