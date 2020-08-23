@@ -22,7 +22,10 @@ const Dialogs = (props) => {
         <div className={styles.dialogItems}>{dialogsElements}</div>
         <div className={styles.messageItems}>{messagesElements}</div>
       </div>
-      <NewMessage />
+      <NewMessage
+        newMessageText={props.dialogsPage.newMessageText}
+        dispatch={props.dispatch}
+      />
     </div>
   );
 };
