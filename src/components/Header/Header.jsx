@@ -8,7 +8,7 @@ const Header = () => {
         <a href="http://localhost:3000/">
           <img
             className={styles.logo}
-            src="https://cdn.worldvectorlogo.com/logos/react.svg"
+            src="https://freepngimg.com/download/minecraft/94774-square-hamburger-area-art-minecraft-pixel.png"
             alt=""
           />
         </a>
