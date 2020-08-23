@@ -1,12 +1,18 @@
 import React from "react";
 import styles from "./NewMessage.module.scss";
-import { updateNewMessageTextActionCreator } from "./../../../redux/store";
+import {
+  updateNewMessageTextActionCreator,
+  addMessageActionCreator,
+} from "./../../../redux/store";
 
 const NewMessage = (props) => {
   let newMessageElement = React.createRef();
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
     props.dispatch(updateNewMessageTextActionCreator(text));
+  };
+  let addMessage = () => {
+    props.dispatch(addMessageActionCreator());
   };
   return (
     <div className={styles.new}>
@@ -17,7 +23,7 @@ const NewMessage = (props) => {
         ref={newMessageElement}
         onChange={onMessageChange}
       />
-      <button>
+      <button onClick={addMessage}>
         <span>Send message</span>
       </button>
     </div>
