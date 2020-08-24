@@ -3,7 +3,7 @@ import styles from "./NewMessage.module.scss";
 import {
   updateNewMessageTextActionCreator,
   addMessageActionCreator,
-} from "./../../../redux/store";
+} from "./../../../redux/dialogs-reducer";
 
 const NewMessage = (props) => {
   let newMessageElement = React.createRef();
