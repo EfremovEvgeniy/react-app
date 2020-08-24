@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Dialogs.module.scss";
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import NewMessage from "./Message/NewMessage";
+import NewMessageContainer from "./Message/NewMessage/NewMessageContainer";
 
 const Dialogs = (props) => {
   let dialogsElements = props.dialogsPage.dialogs.map((d) => (
@@ -22,7 +22,7 @@ const Dialogs = (props) => {
         <div className={styles.dialogItems}>{dialogsElements}</div>
         <div className={styles.messageItems}>{messagesElements}</div>
       </div>
-      <NewMessage
+      <NewMessageContainer
         newMessageText={props.dialogsPage.newMessageText}
         dispatch={props.dispatch}
       />
