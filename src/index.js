@@ -6,20 +6,14 @@ import App from './App.jsx';
 import store from './redux/redux-store'
 import { Provider } from 'react-redux';
 
-let rerenderAllPage = (state) => {
-    ReactDOM.render(
-        <React.StrictMode>
-            <Provider store={store}>
-                <App state={store.getState()} dispatch={store.dispatch.bind(store)} />
-            </Provider>
-        </React.StrictMode>,
-        document.getElementById('root')
-    );
-}
-
-
-rerenderAllPage(store.getState());
-store.subscribe(rerenderAllPage);
+ReactDOM.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <App state={store.getState()} dispatch={store.dispatch.bind(store)} />
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
