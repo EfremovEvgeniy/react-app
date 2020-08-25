@@ -1,20 +1,16 @@
 import React from "react";
 import styles from "./Profile.module.scss";
-import MyPosts from "./MyPosts/MyPosts";
 import ProfileDescription from "./ProfileDescription/ProfileDescription";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const Profile = (props) => {
+const Profile = () => {
   return (
     <div className={styles.wrapper}>
       <ProfileDescription
         avaUrl="https://avatarfiles.alphacoders.com/693/69306.jpg"
         name="Efremov Evgenii"
       />
-      <MyPosts
-        posts={props.profilePage.posts}
-        dispatch={props.dispatch}
-        newPostText={props.profilePage.newPostText}
-      />
+      <MyPostsContainer />
     </div>
   );
 };

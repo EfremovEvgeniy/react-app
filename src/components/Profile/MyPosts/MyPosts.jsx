@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./MyPosts.module.scss";
 import Post from "./Post/Post";
-import NewPostContainer from "./NewPost/NewPostContainer";
+import NewPost from "./NewPost/NewPost";
 
 const MyPosts = (props) => {
   let postsElements = props.posts.map((p) => (
@@ -12,9 +12,10 @@ const MyPosts = (props) => {
       <div className={styles.title}>
         <p>My posts</p>
       </div>
-      <NewPostContainer
+      <NewPost
+        addPost={props.addPost}
+        updateNewPostText={props.updateNewPostText}
         newPostText={props.newPostText}
-        dispatch={props.dispatch}
       />
       <div className={styles.posts}>{postsElements}</div>
     </div>
