@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./NewPost.module.scss";
 
 const NewPost = (props) => {
-  console.log(props);
   let newPostElement = React.createRef();
   let onAddPost = () => {
     props.addPost();

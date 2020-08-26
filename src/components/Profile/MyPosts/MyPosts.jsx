@@ -5,7 +5,7 @@ import NewPost from "./NewPost/NewPost";
 
 const MyPosts = (props) => {
   let postsElements = props.posts.map((p) => (
-    <Post text={p.text} id={p.id} likesCount={p.likesCount} />
+    <Post text={p.text} id={p.id} likesCount={p.likesCount} key={p.id} />
   ));
   return (
     <div className={styles.wrapper}>

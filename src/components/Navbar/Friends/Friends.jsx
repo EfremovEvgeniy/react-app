@@ -5,7 +5,7 @@ import MenuItem from "../MenuItem/MenuItem";
 
 const Friends = (props) => {
   let friendsElements = props.friends.map((f) => (
-    <Friend name={f.name} id={f.id} avaUrl={f.avaUrl} />
+    <Friend name={f.name} id={f.id} avaUrl={f.avaUrl} key={f.id} />
   ));
 
   return (
