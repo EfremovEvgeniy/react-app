@@ -10,6 +10,7 @@ const Navbar = () => {
       <MenuItem path="/dialogs" title="Dialogs" />
       <MenuItem path="/news" title="News" />
       <MenuItem path="/music" title="Music" />
+      <MenuItem path="/users" title="Find user" />
       <FriendsContainer />
       <MenuItem path="/settings" title="Settings" />
     </nav>

@@ -3,9 +3,6 @@ import styles from "./NewPost.module.scss";
 
 const NewPost = (props) => {
   let newPostElement = React.createRef();
-  let onAddPost = () => {
-    props.addPost();
-  };
   let onPostChange = () => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text);
@@ -20,7 +17,7 @@ const NewPost = (props) => {
         value={props.newPostText}
         onChange={onPostChange}
       />
-      <button onClick={onAddPost}>
+      <button onClick={props.addPost}>
         <span>Add posts</span>
       </button>
     </div>

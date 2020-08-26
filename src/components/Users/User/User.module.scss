@@ -1,0 +1,53 @@
+.wrapper {
+  display: flex;
+  padding: 20px;
+  margin-top: 20px;
+}
+.ava {
+  display: flex;
+  align-items: center;
+  img {
+    width: 80px;
+    height: 80px;
+  }
+}
+.description {
+  flex-grow: 1;
+  display: flex;
+  flex-basis: 20%;
+  border: 1px solid white;
+  border-radius: 20px;
+  margin-left: 30px;
+  padding: 10px 20px;
+}
+.name {
+  display: flex;
+  flex-basis: 50%;
+  flex-direction: column;
+  justify-content: center;
+  q {
+    margin-top: 15px;
+    color: #20e77b;
+  }
+}
+.adress {
+  margin-left: 40px;
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  .country {
+    margin-top: 15px;
+  }
+}
+.buttonWrapper {
+  flex-grow: 1;
+  flex-basis: 20%;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  button {
+    height: 30px;
+    width: 120px;
+  }
+}

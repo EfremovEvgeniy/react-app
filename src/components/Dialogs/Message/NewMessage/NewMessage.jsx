@@ -7,9 +7,6 @@ const NewMessage = (props) => {
     let text = newMessageElement.current.value;
     props.updateNewMessageText(text);
   };
-  let onAddMessage = () => {
-    props.addMessage();
-  };
   return (
     <div className={styles.new}>
       <textarea
@@ -19,7 +16,7 @@ const NewMessage = (props) => {
         ref={newMessageElement}
         onChange={onMessageChange}
       />
-      <button onClick={onAddMessage}>
+      <button onClick={props.addMessage}>
         <span>Send message</span>
       </button>
     </div>
