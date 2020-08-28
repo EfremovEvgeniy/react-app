@@ -1,23 +1,28 @@
 import React from "react";
 import styles from "./User.module.scss";
+import defaultAva from "./../../../assets/images/default_ava.png";
 
 const User = (props) => {
+  let defaultStatus = "I'm all right!";
+  let defaultCity = "Moscow";
+  let defaultCountry = "Russia";
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.ava}>
-        <img src={props.avaUrl} alt="ava" />
+        <img src={props.photos.small || defaultAva} alt="ava" />
       </div>
       <div className={styles.description}>
         <div className={styles.name}>
-          <span>{props.fullName}</span>
-          <q>{props.status}</q>
+          <span>{props.name}</span>
+          <q>{props.status || defaultStatus}</q>
         </div>
         <div className={styles.adress}>
           <div className={styles.city}>
-            <span>{props.location.city}</span>
+            <span>{defaultCity}</span>
           </div>
           <div className={styles.country}>
-            <i>{props.location.country}</i>
+            <i>{defaultCountry}</i>
           </div>
         </div>
       </div>
