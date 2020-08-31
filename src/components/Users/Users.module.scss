@@ -5,3 +5,19 @@
   text-align: center;
   font-size: 20px;
 }
+.pagesWrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  span {
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  span:first-child {
+    margin: 0;
+  }
+}
+.selectedPage {
+  font-weight: bold;
+}
