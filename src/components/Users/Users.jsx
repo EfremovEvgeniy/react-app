@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Users.module.scss";
 import User from "./User/User";
+import Loader from "../Loader/Loader";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -9,9 +10,27 @@ const Users = (props) => {
     pages.push(i);
   }
   let limitPages = pages.slice(0, 10);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>Users</div>
+      {props.isFetching ? (
+        <Loader />
+      ) : (
+        props.users.map((u) => (
+          <User
+            name={u.name}
+            id={u.id}
+            status={u.status}
+            key={u.id}
+            followed={u.followed}
+            uniqueUrlName={u.uniqueUrlName}
+            photos={u.photos}
+            followUser={props.followUser}
+            unfollowUser={props.unfollowUser}
+          />
+        ))
+      )}
       <div className={styles.pagesWrapper}>
         {limitPages.map((p) => (
           <span
@@ -24,19 +43,6 @@ const Users = (props) => {
           </span>
         ))}
       </div>
-      {props.users.map((u) => (
-        <User
-          name={u.name}
-          id={u.id}
-          status={u.status}
-          key={u.id}
-          followed={u.followed}
-          uniqueUrlName={u.uniqueUrlName}
-          photos={u.photos}
-          followUser={props.followUser}
-          unfollowUser={props.unfollowUser}
-        />
-      ))}
     </div>
   );
 };
