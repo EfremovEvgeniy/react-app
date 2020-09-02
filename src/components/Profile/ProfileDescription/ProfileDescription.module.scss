@@ -34,7 +34,7 @@
 .ava {
   display: flex;
   align-items: center;
-  padding: 15px 0px;
+  padding: 15px;
   img {
     width: 200px;
     height: 200px;
@@ -45,6 +45,9 @@
 .jobInfo,
 .contacts {
   @include centeredItems;
+}
+.jobInfo {
+  width: 25%;
 }
 
 .facebook {
