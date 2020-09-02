@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./User.module.scss";
 import defaultAva from "./../../../assets/images/default_ava.png";
+import { NavLink } from "react-router-dom";
 
 const User = (props) => {
   let defaultStatus = "I'm all right!";
@@ -10,7 +11,9 @@ const User = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.ava}>
-        <img src={props.photos.small || defaultAva} alt="ava" />
+        <NavLink to={"/profile/" + props.id}>
+          <img src={props.photos.small || defaultAva} alt="ava" />
+        </NavLink>
       </div>
       <div className={styles.description}>
         <div className={styles.name}>

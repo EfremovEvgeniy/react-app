@@ -3,13 +3,10 @@ import styles from "./Profile.module.scss";
 import ProfileDescription from "./ProfileDescription/ProfileDescription";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className={styles.wrapper}>
-      <ProfileDescription
-        avaUrl="https://avatarfiles.alphacoders.com/693/69306.jpg"
-        name="Efremov Evgenii"
-      />
+      <ProfileDescription profile={props.profile} />
       <MyPostsContainer />
     </div>
   );
