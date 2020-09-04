@@ -1,12 +1,37 @@
 .header {
   grid-area: header;
-  div {
+  display: flex;
+  background-color: #25d1ff;
+  justify-content: space-between;
+  .logoBlock {
     height: 55px;
-    background-color: #25d1ff;
     padding: 10px 20px;
+    .logo {
+      width: 60px;
+      height: 60px;
+    }
   }
-  .logo {
-    width: 60px;
-    height: 60px;
+  .loginBlock {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    a {
+      color: white;
+    }
+  }
+  .currentUser {
+    display: flex;
+    align-items: center;
+    p {
+      margin-right: 20px;
+    }
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
   }
 }

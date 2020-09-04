@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./Header.module.scss";
+import { NavLink } from "react-router-dom";
+import defaultAva from "./../../assets/images/default_ava.png";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={styles.header}>
-      <div>
+      <div className={styles.logoBlock}>
         <a href="http://localhost:3000/">
           <img
             className={styles.logo}
@@ -12,6 +14,19 @@ const Header = () => {
             alt=""
           />
         </a>
+      </div>
+      <div className={styles.loginBlock}>
+        {props.isCurrentUserSetted ? (
+          <div className={styles.currentUser}>
+            <p>{props.currentUser.fullName}</p>
+            <img
+              src={props.currentUser.photos.small || defaultAva}
+              alt="avatar"
+            />
+          </div>
+        ) : (
+          <NavLink to={"/login"}>Login</NavLink>
+        )}
       </div>
     </header>
   );
