@@ -18,7 +18,7 @@ class HeaderContainer extends React.Component {
       });
   }
   componentDidUpdate() {
-    if (this.props.isAuth) {
+    if (this.props.isAuth && !this.props.currentUser) {
       axios
         .get(
           `https://social-network.samuraijs.com/api/1.0/profile/${this.props.userId}`
