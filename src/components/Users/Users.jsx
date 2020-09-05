@@ -28,13 +28,18 @@ const Users = (props) => {
             photos={u.photos}
             followUser={props.followUser}
             unfollowUser={props.unfollowUser}
+            isFollowing={props.isFollowing}
+            toggleIsFollowing={props.toggleIsFollowing}
           />
         ))
       )}
       <div className={styles.pagesWrapper}>
         {limitPages.map((p) => (
           <span
-            className={props.currentPage === p && styles.selectedPage}
+            key={p}
+            className={
+              props.currentPage === p ? styles.selectedPage : undefined
+            }
             onClick={() => {
               props.onPageChanged(p);
             }}

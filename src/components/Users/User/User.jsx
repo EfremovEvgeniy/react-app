@@ -33,11 +33,14 @@ const User = (props) => {
       <div className={styles.buttonWrapper}>
         {props.followed ? (
           <button
+            disabled={props.isFollowing.some((id) => id === props.id)}
             onClick={() => {
+              props.toggleIsFollowing(true, props.id);
               usersAPI.unfollowUser(props.id).then((data) => {
                 if (data.resultCode === 0) {
                   props.unfollowUser(props.id);
                 }
+                props.toggleIsFollowing(false, props.id);
               });
             }}
           >
@@ -45,11 +48,14 @@ const User = (props) => {
           </button>
         ) : (
           <button
+            disabled={props.isFollowing.some((id) => id === props.id)}
             onClick={() => {
+              props.toggleIsFollowing(true, props.id);
               usersAPI.followUser(props.id).then((data) => {
                 if (data.resultCode === 0) {
                   props.followUser(props.id);
                 }
+                props.toggleIsFollowing(false, props.id);
               });
             }}
           >
