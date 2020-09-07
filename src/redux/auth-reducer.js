@@ -1,3 +1,5 @@
+import { usersAPI } from "../api/api";
+
 const SET_USER_DATA = 'SET-USER-DATA';
 const SET_CURRENT_USER = 'SET-CURRENT-USER';
 
@@ -30,5 +32,24 @@ const authReducer = (state = initialState, action) => {
 }
 
 export const setUserData = (userId, email, login) => ({ type: SET_USER_DATA, data: { userId, email, login } })
-export const setCurrentUser = (currentUser) => ({ type: SET_CURRENT_USER, currentUser })
+export const setCurrentUserData = (currentUser) => ({ type: SET_CURRENT_USER, currentUser })
+
+export const authUser = () => {
+    return (dispatch) => {
+        usersAPI.authMe().then((data) => {
+            if (data.resultCode === 0) {
+                let { id, login, email } = data.data;
+                dispatch(setUserData(id, email, login));
+            }
+        });
+    }
+}
+
+export const setCurrentUser = (userId) => {
+    return (dispatch) => {
+        usersAPI.getProfile(userId).then((data) => {
+            dispatch(setCurrentUserData(data));
+        });
+    }
+}
 export default authReducer;

@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./User.module.scss";
 import defaultAva from "./../../../assets/images/default_ava.png";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../../api/api";
 
 const User = (props) => {
   let defaultStatus = "I'm all right!";
@@ -35,13 +34,7 @@ const User = (props) => {
           <button
             disabled={props.isFollowing.some((id) => id === props.id)}
             onClick={() => {
-              props.toggleIsFollowing(true, props.id);
-              usersAPI.unfollowUser(props.id).then((data) => {
-                if (data.resultCode === 0) {
-                  props.unfollowUser(props.id);
-                }
-                props.toggleIsFollowing(false, props.id);
-              });
+              props.unfollowUser(props.id);
             }}
           >
             <span>Unfollow</span>
@@ -50,13 +43,7 @@ const User = (props) => {
           <button
             disabled={props.isFollowing.some((id) => id === props.id)}
             onClick={() => {
-              props.toggleIsFollowing(true, props.id);
-              usersAPI.followUser(props.id).then((data) => {
-                if (data.resultCode === 0) {
-                  props.followUser(props.id);
-                }
-                props.toggleIsFollowing(false, props.id);
-              });
+              props.followUser(props.id);
             }}
           >
             <span>Follow</span>

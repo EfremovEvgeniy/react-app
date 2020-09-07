@@ -26,10 +26,9 @@ const Users = (props) => {
             followed={u.followed}
             uniqueUrlName={u.uniqueUrlName}
             photos={u.photos}
-            followUser={props.followUser}
-            unfollowUser={props.unfollowUser}
             isFollowing={props.isFollowing}
-            toggleIsFollowing={props.toggleIsFollowing}
+            unfollowUser={props.unfollowUser}
+            followUser={props.followUser}
           />
         ))
       )}
