@@ -8,23 +8,9 @@ const ProfileDescription = (props) => {
   if (!props.profile) {
     return <Loader />;
   }
-  return (
-    <div className={styles.profile}>
-      <div className={styles.ava}>
-        <img src={props.profile.photos.large || defaultAva} alt="avatar" />
-      </div>
-      <div className={styles.description}>
-        <p className={styles.title}>Profile info</p>
-        <p>{props.profile.fullName}</p>
-        <q>{props.profile.aboutMe}</q>
-      </div>
-      <div className={styles.jobInfo}>
-        <p className={styles.title}>Job Info</p>
-        <p>
-          {props.profile.lookingForAJob ? "Open to work" : "Don't search work"}
-        </p>
-        <i>{props.profile.lookingForAJobDescription}</i>
-      </div>
+  let contacts;
+  if (!Object.keys(props.profile.contacts).length) {
+    contacts = (
       <div className={styles.contacts}>
         <p className={styles.title}>Contacts</p>
         <p className={styles.facebook}>
@@ -48,6 +34,28 @@ const ProfileDescription = (props) => {
           </a>
         </p>
       </div>
+    );
+  } else {
+    contacts = false;
+  }
+  return (
+    <div className={styles.profile}>
+      <div className={styles.ava}>
+        <img src={props.profile.photos.large || defaultAva} alt="avatar" />
+      </div>
+      <div className={styles.description}>
+        <p className={styles.title}>Profile info</p>
+        <p>{props.profile.fullName}</p>
+        <q>{props.profile.aboutMe}</q>
+      </div>
+      <div className={styles.jobInfo}>
+        <p className={styles.title}>Job Info</p>
+        <p>
+          {props.profile.lookingForAJob ? "Open to work" : "Don't search work"}
+        </p>
+        <i>{props.profile.lookingForAJobDescription}</i>
+      </div>
+      {contacts}
     </div>
   );
 };

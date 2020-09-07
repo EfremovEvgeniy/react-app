@@ -21,7 +21,7 @@
 .profile {
   display: flex;
   align-items: flex-start;
-  justify-content: space-evenly;
+  justify-content: space-between;
   font-size: 18px;
   .title {
     font-size: 22px;
@@ -32,6 +32,7 @@
 }
 
 .ava {
+  width: 200px;
   display: flex;
   align-items: center;
   padding: 15px;

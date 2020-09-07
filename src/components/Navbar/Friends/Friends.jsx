@@ -8,6 +8,10 @@ const Friends = (props) => {
     <Friend name={f.name} id={f.id} avaUrl={f.avaUrl} key={f.id} />
   ));
 
+  if (!props.isAuth) {
+    return false;
+  }
+
   return (
     <div className={styles.friends}>
       <MenuItem path="/friends" title="Friends"></MenuItem>
