@@ -25,6 +25,6 @@ export default compose(
   connect(mapStateToProps, {
     getProfile,
   }),
-  withRouter,
-  withAuthRedirect
+  withRouter
+  // withAuthRedirect
 )(ProfileContainer);
