@@ -58,10 +58,9 @@ button {
 
 textarea {
   width: 200px;
-  height: 30px;
+  height: auto;
   outline: none;
-  resize: none;
-  white-space: nowrap;
+  white-space: normal;
   overflow: auto;
   border: 1px solid #526163;
   border-radius: 5px;
