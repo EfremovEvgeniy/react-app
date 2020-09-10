@@ -28,6 +28,12 @@ export const usersAPI = {
                 return response.data
             })
     },
+    getProfileStatus(profileId) {
+        return axiosInstance.get(`profile/status/${profileId}`)
+            .then(response => {
+                return response.data
+            })
+    },
     followUser(userId) {
         return axiosInstance.post(
             `follow/${userId}`,

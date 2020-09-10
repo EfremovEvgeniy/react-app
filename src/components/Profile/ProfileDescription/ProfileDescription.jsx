@@ -47,7 +47,7 @@ const ProfileDescription = (props) => {
       <div className={styles.description}>
         <p className={styles.title}>Profile info</p>
         <p>{props.profile.fullName}</p>
-        <ProfileStatus status={props.profile.aboutMe} />
+        <ProfileStatus status={props.status} />
       </div>
       <div className={styles.jobInfo}>
         <p className={styles.title}>Job Info</p>

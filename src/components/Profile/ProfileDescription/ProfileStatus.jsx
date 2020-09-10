@@ -18,21 +18,22 @@ class ProfileStatus extends React.Component {
   render() {
     return (
       <div>
-        {!this.state.editMode && (
+        {!this.state.editMode && this.props.status && (
           <div className={styles.status}>
             <q onDoubleClick={this.activateEditMode}>{this.props.status}</q>
           </div>
         )}
-        {this.state.editMode && (
-          <div>
-            <textarea
-              onBlur={this.deactivateEditMode}
-              autoFocus={true}
-              type="text"
-              value={this.props.status}
-            />
-          </div>
-        )}
+        {this.state.editMode ||
+          (!this.props.status && (
+            <div>
+              <textarea
+                onBlur={this.deactivateEditMode}
+                autoFocus={true}
+                type="text"
+                value={this.props.status}
+              />
+            </div>
+          ))}
       </div>
     );
   }
