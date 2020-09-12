@@ -1,19 +1,17 @@
 import React from "react";
 import styles from "./NewMessage.module.scss";
+import TextareaAutosize from "react-textarea-autosize";
 
 const NewMessage = (props) => {
-  let newMessageElement = React.createRef();
-  let onMessageChange = () => {
-    let text = newMessageElement.current.value;
-    props.updateNewMessageText(text);
+  let onMessageChange = (event) => {
+    props.updateNewMessageText(event.target.value);
   };
   return (
     <div className={styles.new}>
-      <textarea
+      <TextareaAutosize
+        minRows="2"
         placeholder="Put your message here"
-        maxLength="250"
         value={props.newMessageText}
-        ref={newMessageElement}
         onChange={onMessageChange}
       />
       <button onClick={props.addMessage}>

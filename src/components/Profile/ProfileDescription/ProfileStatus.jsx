@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ProfileStatus.module.scss";
+import TextareaAutosize from "react-textarea-autosize";
 
 class ProfileStatus extends React.Component {
   constructor(props) {
@@ -39,11 +40,11 @@ class ProfileStatus extends React.Component {
         )}
         {this.state.editMode && (
           <div>
-            <textarea
+            <TextareaAutosize
+              autoFocus
+              minRows="2"
               onBlur={this.deactivateEditMode}
               onChange={this.updateStatus}
-              autoFocus={true}
-              type="text"
               value={this.props.status || undefined}
             />
           </div>

@@ -1,19 +1,17 @@
 import React from "react";
 import styles from "./NewPost.module.scss";
+import TextareaAutosize from "react-textarea-autosize";
 
 const NewPost = (props) => {
-  let newPostElement = React.createRef();
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+  let onPostChange = (event) => {
+    props.updateNewPostText(event.target.value);
   };
 
   return (
     <div className={styles.new}>
-      <textarea
+      <TextareaAutosize
+        minRows="2"
         placeholder="Put your post here"
-        maxLength="250"
-        ref={newPostElement}
         value={props.newPostText}
         onChange={onPostChange}
       />
