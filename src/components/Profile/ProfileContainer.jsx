@@ -4,7 +4,7 @@ import Profile from "./Profile";
 import {
   getProfile,
   getProfileStatus,
-  updateStatus,
+  updateProfileStatus,
 } from "./../../redux/profile-reducer";
 import { withRouter } from "react-router-dom";
 import { withAuthRedirect } from "../../hoc/WithAuthRedirect";
@@ -31,7 +31,7 @@ export default compose(
   connect(mapStateToProps, {
     getProfile,
     getProfileStatus,
-    updateStatus,
+    updateProfileStatus,
   }),
   withRouter
   // withAuthRedirect

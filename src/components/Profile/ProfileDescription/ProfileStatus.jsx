@@ -11,22 +11,33 @@ class ProfileStatus extends React.Component {
     this.updateStatus = this.updateStatus.bind(this);
   }
   state = {
-    editMode: true,
+    editMode: false,
+    status: this.props.status,
   };
-  activateEditMode = (event) => {
-    this.setState({
-      editMode: true,
-    });
-  };
-  deactivateEditMode(event) {
-    if (this.props.status && this.props.status.length > 0) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
       this.setState({
-        editMode: false,
+        status: this.props.status,
       });
     }
   }
+  activateEditMode() {
+    this.setState({
+      editMode: true,
+    });
+  }
+  deactivateEditMode() {
+    if (this.state.status && this.state.status.length > 0) {
+      this.setState({
+        editMode: false,
+      });
+      this.props.updateProfileStatus(this.state.status);
+    }
+  }
   updateStatus(event) {
-    this.props.updateStatus(event.target.value);
+    this.setState({
+      status: event.currentTarget.value,
+    });
   }
   render() {
     return (
@@ -43,9 +54,10 @@ class ProfileStatus extends React.Component {
             <TextareaAutosize
               autoFocus
               minRows="2"
+              maxLength="300"
               onBlur={this.deactivateEditMode}
               onChange={this.updateStatus}
-              value={this.props.status || undefined}
+              value={this.state.status || undefined}
             />
           </div>
         )}

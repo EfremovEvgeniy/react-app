@@ -22,18 +22,6 @@ export const usersAPI = {
                 return response.data
             })
     },
-    getProfile(profileId) {
-        return axiosInstance.get(`profile/${profileId}`)
-            .then(response => {
-                return response.data
-            })
-    },
-    getProfileStatus(profileId) {
-        return axiosInstance.get(`profile/status/${profileId}`)
-            .then(response => {
-                return response.data
-            })
-    },
     followUser(userId) {
         return axiosInstance.post(
             `follow/${userId}`,
@@ -52,4 +40,27 @@ export const usersAPI = {
                 return response.data;
             })
     }
+}
+
+export const profileAPI = {
+    getProfile(profileId) {
+        return axiosInstance.get(`profile/${profileId}`)
+            .then(response => {
+                return response.data
+            })
+    },
+    getProfileStatus(profileId) {
+        return axiosInstance.get(`profile/status/${profileId}`)
+            .then(response => {
+                return response.data
+            })
+    },
+    updateProfileStatus(status) {
+        return axiosInstance.put('profile/status/', {
+            status: status,
+        })
+            .then(response => {
+                return response.data
+            })
+    },
 }
