@@ -1,4 +1,4 @@
-import { profileAPI, usersAPI } from "../api/api";
+import { profileAPI, authAPI } from "../api/api";
 
 const SET_USER_DATA = 'SET-USER-DATA';
 const SET_CURRENT_USER = 'SET-CURRENT-USER';
@@ -36,7 +36,7 @@ export const setCurrentUserData = (currentUser) => ({ type: SET_CURRENT_USER, cu
 
 export const authUser = () => {
     return (dispatch) => {
-        usersAPI.authMe().then((data) => {
+        authAPI.authMe().then((data) => {
             if (data.resultCode === 0) {
                 let { id, login, email } = data.data;
                 dispatch(setUserData(id, email, login));
@@ -49,6 +49,17 @@ export const setCurrentUser = (userId) => {
     return (dispatch) => {
         profileAPI.getProfile(userId).then((data) => {
             dispatch(setCurrentUserData(data));
+        });
+    }
+}
+
+export const loginUser = () => {
+    return (dispatch) => {
+        authAPI.login().then((data) => {
+            if (data.resultCode === 0) {
+                // let { id, login, email } = data.data;
+                // dispatch(setUserData(id, email, login));
+            }
         });
     }
 }

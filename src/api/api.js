@@ -16,12 +16,6 @@ export const usersAPI = {
                 return response.data;
             })
     },
-    authMe() {
-        return axiosInstance.get(`auth/me`)
-            .then(response => {
-                return response.data
-            })
-    },
     followUser(userId) {
         return axiosInstance.post(
             `follow/${userId}`,
@@ -40,6 +34,25 @@ export const usersAPI = {
                 return response.data;
             })
     }
+}
+
+export const authAPI = {
+    authMe() {
+        return axiosInstance.get(`auth/me`)
+            .then(response => {
+                return response.data
+            })
+    },
+    login(email, password, rememberMe) {
+        return axiosInstance.post(`auth/login`, {
+            email: email,
+            password: password,
+            rememberMe: rememberMe,
+        })
+            .then(response => {
+                return response.data
+            })
+    },
 }
 
 export const profileAPI = {
