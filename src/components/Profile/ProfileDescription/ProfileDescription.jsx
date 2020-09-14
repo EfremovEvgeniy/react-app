@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./ProfileDescription.module.scss";
 import Loader from "../../Loader/Loader";
 import ProfileStatus from "./ProfileStatus";
+import JobInfo from "./JobInfo/JobInfo";
+import ProfileContacts from "./ProfileContacts/ProfileContacts";
 
 const ProfileDescription = (props) => {
   let defaultAva = "https://avatarfiles.alphacoders.com/693/69306.jpg";
@@ -10,32 +12,8 @@ const ProfileDescription = (props) => {
     return <Loader />;
   }
   let contacts;
-  if (!Object.keys(props.profile.contacts).length) {
-    contacts = (
-      <div className={styles.contacts}>
-        <p className={styles.title}>Contacts</p>
-        <p className={styles.facebook}>
-          <a href={props.profile.contacts.facebook}>
-            {props.profile.contacts.facebook}
-          </a>
-        </p>
-        <p className={styles.github}>
-          <a href={props.profile.contacts.github}>
-            {props.profile.contacts.github}
-          </a>
-        </p>
-        <p className={styles.twitter}>
-          <a href={props.profile.contacts.twitter}>
-            {props.profile.contacts.twitter}
-          </a>
-        </p>
-        <p className={styles.instagram}>
-          <a href={props.profile.contacts.instagram}>
-            {props.profile.contacts.instagram}
-          </a>
-        </p>
-      </div>
-    );
+  if (Object.keys(props.profile.contacts).length > 0) {
+    contacts = <ProfileContacts contacts={props.profile.contacts} />;
   } else {
     contacts = false;
   }
@@ -52,13 +30,10 @@ const ProfileDescription = (props) => {
           updateProfileStatus={props.updateProfileStatus}
         />
       </div>
-      <div className={styles.jobInfo}>
-        <p className={styles.title}>Job Info</p>
-        <p>
-          {props.profile.lookingForAJob ? "Open to work" : "Don't search work"}
-        </p>
-        <i>{props.profile.lookingForAJobDescription}</i>
-      </div>
+      <JobInfo
+        lookingForAJob={props.profile.lookingForAJob}
+        lookingForAJobDescription={props.profile.lookingForAJobDescription}
+      />
       {contacts}
     </div>
   );
