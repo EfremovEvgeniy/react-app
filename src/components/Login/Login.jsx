@@ -1,5 +1,7 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
+import { connect } from "react-redux";
+import { loginUser } from "./../../redux/auth-reducer";
 
 const LoginForm = (props) => {
   return (
@@ -21,13 +23,24 @@ const LoginForm = (props) => {
   );
 };
 
+let mapStateToProps = (state) => {
+  return {
+    userId: state.auth.userId,
+    email: state.auth.userId,
+    login: state.auth.userId,
+    isAuth: state.auth.isAuth,
+    isCurrentUserSetted: state.auth.isCurrentUserSetted,
+    currentUser: state.auth.currentUser,
+  };
+};
+
 const ReduxLoginForm = reduxForm({
   form: "login",
 })(LoginForm);
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    // console.log(formData);
+    props.loginUser(formData.Login, formData.Password, formData.rememberMe);
   };
   return (
     <div>
@@ -37,4 +50,6 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default connect(mapStateToProps, {
+  loginUser,
+})(Login);

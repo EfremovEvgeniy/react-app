@@ -53,12 +53,14 @@ export const setCurrentUser = (userId) => {
     }
 }
 
-export const loginUser = () => {
+export const loginUser = (email, password, rememberMe) => {
     return (dispatch) => {
-        authAPI.login().then((data) => {
+        authAPI.login(email, password, rememberMe).then((data) => {
             if (data.resultCode === 0) {
-                // let { id, login, email } = data.data;
-                // dispatch(setUserData(id, email, login));
+                let userId = data.data.userId;
+                profileAPI.getProfile(userId).then((data) => {
+                    dispatch(setCurrentUserData(data));
+                });
             }
         });
     }
