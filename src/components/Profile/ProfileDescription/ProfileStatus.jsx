@@ -3,13 +3,6 @@ import styles from "./ProfileStatus.module.scss";
 import TextareaAutosize from "react-textarea-autosize";
 
 class ProfileStatus extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.deactivateEditMode = this.deactivateEditMode.bind(this);
-    this.activateEditMode = this.activateEditMode.bind(this);
-    this.updateStatus = this.updateStatus.bind(this);
-  }
   state = {
     editMode: false,
     status: this.props.status,
@@ -21,24 +14,24 @@ class ProfileStatus extends React.Component {
       });
     }
   }
-  activateEditMode() {
+  activateEditMode = () => {
     this.setState({
       editMode: true,
     });
-  }
-  deactivateEditMode() {
+  };
+  deactivateEditMode = () => {
     if (this.state.status && this.state.status.length > 0) {
       this.setState({
         editMode: false,
       });
       this.props.updateProfileStatus(this.state.status);
     }
-  }
-  updateStatus(event) {
+  };
+  updateStatus = (e) => {
     this.setState({
-      status: event.currentTarget.value,
+      status: e.currentTarget.value,
     });
-  }
+  };
   render() {
     return (
       <div>
