@@ -5,18 +5,19 @@ import {
   requiredField,
   maxLengthCreator,
 } from "../../../utils/validators/validators";
-import TextArea from "../../Common/FormsControls/TextArea";
+import { Element } from "../../Common/FormsControls/FormControl";
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength100 = maxLengthCreator(100);
 
 const MessageForm = (props) => {
+  const TextArea = Element("textarea");
   return (
     <form onSubmit={props.handleSubmit} className={styles.new}>
       <Field
         component={TextArea}
         name="newMessageBody"
         placeholder="Put your message here"
-        validate={[requiredField, maxLength10]}
+        validate={[requiredField, maxLength100]}
       />
       <button>
         <span>Send message</span>
