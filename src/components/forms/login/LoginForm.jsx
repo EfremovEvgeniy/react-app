@@ -2,10 +2,9 @@ import React from "react";
 import { reduxForm, Field } from "redux-form";
 import styles from "./LoginForm.module.scss";
 import { requiredField } from "../../../utils/validators/validators";
-import { Element } from "../../Common/FormsControls/FormControl";
+import { Input } from "../../Common/FormsControls/FormControl";
 
 const LoginForm = (props) => {
-  const Input = Element("input");
   return (
     <form onSubmit={props.handleSubmit} className={styles.loginForm}>
       <div className={styles.inputWrapper}>
@@ -21,7 +20,7 @@ const LoginForm = (props) => {
         <Field
           name="Password"
           component={Input}
-          type="text"
+          type="password"
           placeholder="Password"
           validate={[requiredField]}
         />

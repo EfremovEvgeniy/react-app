@@ -5,12 +5,11 @@ import {
   requiredField,
   maxLengthCreator,
 } from "../../../utils/validators/validators";
-import { Element } from "../../Common/FormsControls/FormControl";
+import { TextArea } from "../../Common/FormsControls/FormControl";
 
 const maxLength10 = maxLengthCreator(10);
 
 const PostForm = (props) => {
-  const TextArea = Element("textarea");
   return (
     <form onSubmit={props.handleSubmit} className={styles.new}>
       <Field

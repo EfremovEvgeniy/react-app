@@ -53,6 +53,12 @@ export const authAPI = {
                 return response.data
             })
     },
+    logout() {
+        return axiosInstance.delete(`auth/login`)
+            .then(response => {
+                return response.data
+            })
+    },
 }
 
 export const profileAPI = {

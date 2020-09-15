@@ -23,6 +23,9 @@ const Header = (props) => {
               src={props.currentUser.photos.small || defaultAva}
               alt="avatar"
             />
+            <a href="#" onClick={props.logoutUser}>
+              Logout
+            </a>
           </div>
         ) : (
           <NavLink to={"/login"}>Login</NavLink>

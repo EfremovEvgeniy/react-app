@@ -3,15 +3,11 @@ import { connect } from "react-redux";
 import { loginUser } from "./../../redux/auth-reducer";
 import styles from "./Login.module.scss";
 import ReduxLoginForm from "../forms/login/LoginForm";
+import { Redirect } from "react-router-dom";
 
 let mapStateToProps = (state) => {
   return {
-    userId: state.auth.userId,
-    email: state.auth.userId,
-    login: state.auth.userId,
     isAuth: state.auth.isAuth,
-    isCurrentUserSetted: state.auth.isCurrentUserSetted,
-    currentUser: state.auth.currentUser,
   };
 };
 
@@ -19,6 +15,9 @@ const Login = (props) => {
   const onSubmit = (formData) => {
     props.loginUser(formData.Login, formData.Password, formData.rememberMe);
   };
+  if (props.isAuth) {
+    return <Redirect to={"/profile"} />;
+  }
   return (
     <div className={styles.wrapper}>
       <h2>Login</h2>
