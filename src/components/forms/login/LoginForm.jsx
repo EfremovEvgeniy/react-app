@@ -9,7 +9,7 @@ const LoginForm = (props) => {
     <form onSubmit={props.handleSubmit} className={styles.loginForm}>
       <div className={styles.inputWrapper}>
         <Field
-          name="Login"
+          name="email"
           component={Input}
           type="text"
           placeholder="Login"
@@ -18,7 +18,7 @@ const LoginForm = (props) => {
       </div>
       <div className={styles.inputWrapper}>
         <Field
-          name="Password"
+          name="password"
           component={Input}
           type="password"
           placeholder="Password"
@@ -29,6 +29,7 @@ const LoginForm = (props) => {
         <Field name="RememberMe" component={Input} type="checkbox" />
         <label>remember me</label>
       </div>
+      {props.error && <div className={styles.summaryError}>{props.error}</div>}
       <div>
         <button>Login</button>
       </div>

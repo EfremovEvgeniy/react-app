@@ -13,7 +13,7 @@ let mapStateToProps = (state) => {
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    props.loginUser(formData.Login, formData.Password, formData.rememberMe);
+    props.loginUser(formData.email, formData.password, formData.rememberMe);
   };
   if (props.isAuth) {
     return <Redirect to={"/profile"} />;

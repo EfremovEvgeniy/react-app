@@ -1,4 +1,5 @@
 import { profileAPI, authAPI } from "../api/api";
+import { stopSubmit } from "redux-form";
 
 const SET_USER_DATA = 'SET-USER-DATA';
 const SET_CURRENT_USER = 'SET-CURRENT-USER';
@@ -65,6 +66,10 @@ export const loginUser = (email, password, rememberMe) => {
             if (data.resultCode === 0) {
                 dispatch(authUser())
                 setCurrentUser(data.data.userId);
+            } else {
+                dispatch(stopSubmit('login', {
+                    _error: data.messages[0] || 'Smth wrong',
+                }));
             }
         });
     }
