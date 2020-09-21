@@ -1,0 +1,42 @@
+@mixin cocialIcons($text) {
+  &::before {
+    color: #e8436c;
+    display: inline-block;
+    font-family: "Themify";
+    content: $text;
+    margin-right: 5px;
+  }
+  &:hover::before {
+    transform: scale(1.1);
+  }
+}
+
+.ProfileContactsTitle {
+  font-size: 22px;
+}
+a {
+  font-size: 16px;
+}
+
+.ProfileContactsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+
+.ProfileContacts__facebook {
+  @include cocialIcons("\e634");
+}
+
+.ProfileContacts__instagram {
+  @include cocialIcons("\e73d");
+}
+
+.ProfileContacts__twitter {
+  @include cocialIcons("\e72a");
+}
+
+.ProfileContacts__github {
+  @include cocialIcons("\e73f");
+}

@@ -12,7 +12,9 @@ const ProfileDescription = (props) => {
     return <Loader />;
   }
   let contacts;
-  if (Object.keys(props.profile.contacts).length > 0) {
+  if (
+    Object.values(props.profile.contacts).filter((el) => el !== null).length > 0
+  ) {
     contacts = <ProfileContacts contacts={props.profile.contacts} />;
   } else {
     contacts = false;
