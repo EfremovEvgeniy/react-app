@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, Redirect } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
@@ -30,6 +30,9 @@ class App extends React.Component {
           <Navbar />
           <main>
             <div className="content">
+              <Route exact path="/">
+                <Redirect to="/profile" />
+              </Route>
               <Route path="/login" render={() => <Login />} />
               <Route
                 path="/profile/:userId?"
