@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./ProfileDescription.module.scss";
 import Loader from "../../Loader/Loader";
-import ProfileStatus from "./ProfileStatus";
+// import ProfileStatus from "./ProfileStatus";
 import JobInfo from "./JobInfo/JobInfo";
 import ProfileContacts from "./ProfileContacts/ProfileContacts";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileDescription = (props) => {
   let defaultAva = "https://avatarfiles.alphacoders.com/693/69306.jpg";
@@ -27,7 +28,7 @@ const ProfileDescription = (props) => {
       <div className={styles.description}>
         <p className={styles.title}>Profile info</p>
         <p>{props.profile.fullName}</p>
-        <ProfileStatus
+        <ProfileStatusWithHooks
           status={props.status}
           updateProfileStatus={props.updateProfileStatus}
         />
