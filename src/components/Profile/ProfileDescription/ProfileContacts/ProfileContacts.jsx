@@ -12,7 +12,7 @@ const ProfileContacts = (props) => {
       contacts.hasOwnProperty(key)
     ) {
       targetContacts.push(
-        <p className={`ProfileContacts__${key}`}>
+        <p className={`ProfileContacts__${key}`} key={key}>
           <a href={contacts[key]}>{contacts[key]}</a>
         </p>
       );
@@ -21,7 +21,7 @@ const ProfileContacts = (props) => {
   return (
     <div className={"ProfileContactsWrapper"}>
       <p className={"ProfileContactsTitle"}>Contacts</p>
-      {contacts}
+      {targetContacts}
     </div>
   );
 };
