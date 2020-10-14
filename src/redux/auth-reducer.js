@@ -41,43 +41,39 @@ export const setUserData = (userId, email, login) => ({ type: SET_USER_DATA, dat
 export const setCurrentUserData = (currentUser) => ({ type: SET_CURRENT_USER, currentUser })
 export const clearUpUserData = () => ({ type: CLEAR_UP_USER_DATA })
 
-export const authUser = () => (dispatch) => {
-    return authAPI.authMe().then((data) => {
-        if (data.resultCode === 0) {
-            let { id, login, email } = data.data;
-            dispatch(setUserData(id, email, login));
-            dispatch(setCurrentUser(id));
-        }
-    });
-}
-
-export const loginUser = (email, password, rememberMe) => {
-    return (dispatch) => {
-        authAPI.login(email, password, rememberMe).then((data) => {
-            if (data.resultCode === 0) {
-                dispatch(authUser())
-            } else {
-                dispatch(stopSubmit('login', {
-                    _error: data.messages[0] || 'Smth wrong',
-                }));
-            }
-        });
+export const authUser = () => async (dispatch) => {
+    let data = await authAPI.authMe()
+    if (data.resultCode === 0) {
+        let { id, login, email } = data.data;
+        dispatch(setUserData(id, email, login));
+        dispatch(setCurrentUser(id));
     }
 }
 
-export const setCurrentUser = (userId) => (dispatch) => {
-    return profileAPI.getProfile(userId).then((data) => {
-        dispatch(setCurrentUserData(data));
-    });
+export const loginUser = (email, password, rememberMe) => {
+    return async (dispatch) => {
+        let data = await authAPI.login(email, password, rememberMe)
+        if (data.resultCode === 0) {
+            dispatch(authUser())
+        } else {
+            dispatch(stopSubmit('login', {
+                _error: data.messages[0] || 'Smth wrong',
+            }));
+        }
+    }
+}
+
+export const setCurrentUser = (userId) => async (dispatch) => {
+    let data = await profileAPI.getProfile(userId)
+    dispatch(setCurrentUserData(data));
 }
 
 export const logoutUser = () => {
-    return (dispatch) => {
-        authAPI.logout().then((data) => {
-            if (data.resultCode === 0) {
-                dispatch(clearUpUserData())
-            }
-        });
+    return async (dispatch) => {
+        let data = await authAPI.logout()
+        if (data.resultCode === 0) {
+            dispatch(clearUpUserData())
+        }
     }
 }
 export default authReducer;
