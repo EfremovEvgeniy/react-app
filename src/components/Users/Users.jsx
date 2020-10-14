@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Users.module.scss";
 import User from "./User/User";
 import Loader from "../Loader/Loader";
+import Paginator from "../Common/paginator/Paginator";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -32,21 +33,12 @@ const Users = (props) => {
           />
         ))
       )}
-      <div className={styles.pagesWrapper}>
-        {limitPages.map((p) => (
-          <span
-            key={p}
-            className={
-              props.currentPage === p ? styles.selectedPage : undefined
-            }
-            onClick={() => {
-              props.onPageChanged(p);
-            }}
-          >
-            {p}
-          </span>
-        ))}
-      </div>
+      <Paginator
+        currentPage={props.currentPage}
+        onPageChanged={props.onPageChanged}
+        totalUsersCount={props.totalUsersCount}
+        pageSize={props.pageSize}
+      />
     </div>
   );
 };

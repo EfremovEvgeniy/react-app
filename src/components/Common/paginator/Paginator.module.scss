@@ -1,0 +1,20 @@
+.pagesWrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  span {
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+    &:hover {
+      color: #00c960;
+    }
+  }
+  span:first-child {
+    margin: 0;
+  }
+}
+.selectedPage {
+  font-weight: bold;
+  color: #00c960;
+}

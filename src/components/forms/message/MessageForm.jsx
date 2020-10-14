@@ -9,9 +9,9 @@ import { TextArea } from "../../Common/FormsControls/FormControl";
 
 const maxLength100 = maxLengthCreator(100);
 
-const MessageForm = (props) => {
+const MessageForm = ({ handleSubmit }) => {
   return (
-    <form onSubmit={props.handleSubmit} className={styles.new}>
+    <form onSubmit={handleSubmit} className={styles.new}>
       <Field
         component={TextArea}
         name="newMessageBody"
