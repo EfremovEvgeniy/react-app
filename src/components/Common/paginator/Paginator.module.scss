@@ -18,3 +18,9 @@
   font-weight: bold;
   color: #00c960;
 }
+button:last-child {
+  margin: 0px 20px;
+}
+button:first-child {
+  margin: 0;
+}
