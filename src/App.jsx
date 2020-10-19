@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { Route, withRouter, Redirect } from "react-router-dom";
+import { Route, withRouter, Redirect, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
@@ -11,9 +11,10 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import { initializeApp } from "./redux/app-reducer";
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import Loader from "./components/Loader/Loader";
+import store from "./redux/redux-store";
 
 class App extends React.Component {
   componentDidMount() {
@@ -57,9 +58,24 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(
+let AppContainer = compose(
   withRouter,
   connect(mapStateToProps, {
     initializeApp,
   })
 )(App);
+
+const MainApp = (props) => {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <AppContainer
+          state={store.getState()}
+          dispatch={store.dispatch.bind(store)}
+        />
+      </BrowserRouter>
+    </Provider>
+  );
+};
+
+export default MainApp;
