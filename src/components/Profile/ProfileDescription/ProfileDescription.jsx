@@ -23,6 +23,7 @@ const ProfileDescription = (props) => {
     <div className={styles.profile}>
       <div className={styles.ava}>
         <img src={props.profile.photos.large || defaultAva} alt="avatar" />
+        {props.isOwner && <input type="file" />}
       </div>
       <div className={styles.description}>
         <p className={styles.title}>Profile info</p>
