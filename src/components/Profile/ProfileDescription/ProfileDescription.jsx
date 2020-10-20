@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./ProfileDescription.module.scss";
 import Loader from "../../Loader/Loader";
-// import ProfileStatus from "./ProfileStatus";
 import JobInfo from "./JobInfo/JobInfo";
 import ProfileContacts from "./ProfileContacts/ProfileContacts";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
