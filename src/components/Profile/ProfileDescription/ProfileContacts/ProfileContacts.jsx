@@ -6,14 +6,13 @@ const ProfileContacts = (props) => {
   let targetContacts = [];
   let contacts = props.contacts;
   for (let key in contacts) {
-    if (
-      targetSocialNetworks.includes(key) &&
-      contacts[key] &&
-      contacts.hasOwnProperty(key)
-    ) {
+    if (targetSocialNetworks.includes(key) && contacts.hasOwnProperty(key)) {
       targetContacts.push(
         <p className={`ProfileContacts__${key}`} key={key}>
-          <a href={contacts[key]}>{contacts[key]}</a>
+          <a href={contacts[key]}>
+            {contacts[key]}
+            {key}
+          </a>
         </p>
       );
     }

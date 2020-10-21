@@ -14,14 +14,21 @@
 @mixin centeredItems {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 15px;
 }
-
+.wrapper {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  .edit {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+  }
+}
 .profile {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   font-size: 18px;
   .title {
     font-size: 22px;
