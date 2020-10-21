@@ -4,6 +4,7 @@ import Loader from "../../Loader/Loader";
 import JobInfo from "./JobInfo/JobInfo";
 import ProfileContacts from "./ProfileContacts/ProfileContacts";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import UploadFile from "../../forms/uploadFile/UploadFile";
 
 const ProfileDescription = (props) => {
   let defaultAva = "https://avatarfiles.alphacoders.com/693/69306.jpg";
@@ -19,11 +20,20 @@ const ProfileDescription = (props) => {
   } else {
     contacts = false;
   }
+
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0]);
+    }
+  };
+
   return (
     <div className={styles.profile}>
       <div className={styles.ava}>
         <img src={props.profile.photos.large || defaultAva} alt="avatar" />
-        {props.isOwner && <input type="file" />}
+        {props.isOwner && (
+          <UploadFile onMainPhotoSelected={onMainPhotoSelected} />
+        )}
       </div>
       <div className={styles.description}>
         <p className={styles.title}>Profile info</p>
