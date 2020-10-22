@@ -10,26 +10,10 @@ import ProfileDataReduxForm from "../../forms/profileData/ProfileDataForm";
 
 const ProfileDescription = (props) => {
   let defaultAva = "https://avatarfiles.alphacoders.com/693/69306.jpg";
-
   let [editMode, setEditMode] = useState(false);
-  // let [status, setStatus] = useState(props.status);
-
-  // useEffect(() => {
-  //   setStatus(props.status);
-  // }, [props.status]);
-
   let activateEditMode = () => {
     setEditMode(true);
   };
-  // let deactivateEditMode = () => {
-  //   if (status && status.length > 0) {
-  //     setEditMode(false);
-  //   }
-  //   props.updateProfileStatus(status);
-  // };
-  // let updateStatus = (e) => {
-  //   setStatus(e.currentTarget.value);
-  // };
 
   if (!props.profile) {
     return <Loader />;
@@ -41,6 +25,11 @@ const ProfileDescription = (props) => {
     }
   };
 
+  const onSubmit = (formData) => {
+    props.saveProfile(formData);
+    setEditMode(false);
+  };
+
   return (
     <div className={styles.profile}>
       <div className={styles.ava}>
@@ -50,12 +39,18 @@ const ProfileDescription = (props) => {
         )}
       </div>
       {editMode ? (
-        <ProfileDataReduxForm profile={props.profile} />
+        <ProfileDataReduxForm
+          profile={props.profile}
+          onSubmit={onSubmit}
+          initialValues={props.profile}
+        />
       ) : (
         <ProfileData
           profile={props.profile}
           isOwner={props.isOwner}
           activateEditMode={activateEditMode}
+          updateProfileStatus={props.updateProfileStatus}
+          status={props.status}
         />
       )}
     </div>
@@ -73,7 +68,7 @@ const ProfileData = (props) => {
           </button>
         )}
         <p>Full name: {props.profile.fullName}</p>
-        {props.profile.aboutMe && <p>About me:{props.profile.aboutMe}</p>}
+        {props.profile.aboutMe && <p>About me: {props.profile.aboutMe}</p>}
         <ProfileStatusWithHooks
           status={props.status}
           updateProfileStatus={props.updateProfileStatus}

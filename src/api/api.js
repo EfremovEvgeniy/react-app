@@ -93,5 +93,11 @@ export const profileAPI = {
             .then(response => {
                 return response.data
             })
+    },
+    saveProfile(profile) {
+        return axiosInstance.put('profile', profile)
+            .then(response => {
+                return response.data
+            })
     }
 }

@@ -3,37 +3,35 @@ import { reduxForm, Field } from "redux-form";
 import { Input } from "../../Common/FormsControls/FormControl";
 import { TextArea } from "../../Common/FormsControls/FormControl";
 import styles from "./../../Profile/ProfileDescription/ProfileDescription.module.scss";
+import targetSocialNetworks from "./../../../global/globalSettings";
 
-const ProfileDataForm = (props) => {
+const ProfileDataForm = ({ handleSubmit }) => {
+  let targetContacts = [];
+  for (let key in targetSocialNetworks) {
+    targetContacts.push(
+      <div key={key} className={styles.contact}>
+        <Field
+          name={targetSocialNetworks[key]}
+          component={Input}
+          type="text"
+          placeholder={`your ${targetSocialNetworks[key]}`}
+        />
+      </div>
+    );
+  }
   return (
-    <form className={styles.wrapper}>
+    <form onSubmit={handleSubmit} className={styles.wrapper}>
       <div className={styles.description}>
         <p className={styles.title}>Profile info</p>
         <button>Save</button>
-        <p>{props.profile.fullName}</p>
+        <p>Full name:</p>
         <div>
-          <Field
-            name="fullName"
-            component={Input}
-            type="text"
-            placeholder={props.profile.fullName}
-            validate={[]}
-          />
+          <Field name="fullName" component={Input} type="text" />
         </div>
         <p>About me:</p>
         <div>
-          <Field
-            name="aboutMe"
-            component={Input}
-            type="text"
-            placeholder={props.profile.aboutMe}
-            validate={[]}
-          />
+          <Field name="aboutMe" component={Input} type="text" />
         </div>
-        {/* <ProfileStatusWithHooks
-          status={props.status}
-          updateProfileStatus={props.updateProfileStatus}
-        /> */}
       </div>
       <div className={styles.jobInfo}>
         <p className={styles.title}>Job Info</p>
@@ -45,16 +43,15 @@ const ProfileDataForm = (props) => {
         <div>
           <Field
             component={TextArea}
-            name="professionalSkills"
+            name="lookingForAJobDescription"
             component={Input}
           />
         </div>
       </div>
-      {/* <JobInfo
-        lookingForAJob={props.profile.lookingForAJob}
-        lookingForAJobDescription={props.profile.lookingForAJobDescription}
-      /> */}
-      {/* <ProfileContacts contacts={props.profile.contacts} /> */}
+      {/* <div>
+        <p>Contacts</p>
+        {targetContacts}
+      </div> */}
     </form>
   );
 };

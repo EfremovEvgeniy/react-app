@@ -1,8 +1,8 @@
 import React from "react";
 import "./ProfileContacts.scss";
+import targetSocialNetworks from "./../../../../global/globalSettings";
 
 const ProfileContacts = (props) => {
-  const targetSocialNetworks = ["facebook", "github", "twitter", "instagram"];
   let targetContacts = [];
   let contacts = props.contacts;
   for (let key in contacts) {
