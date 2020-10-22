@@ -48,8 +48,17 @@
     border: 1px solid white;
   }
 }
+.summaryError {
+  border: 1px solid red;
+  margin-bottom: 10px;
+  padding: 5px 20px;
+}
 .contact {
   margin-top: 10px;
+}
+.save {
+  width: 100px;
+  height: 20px;
 }
 .description,
 .jobInfo,

@@ -9,10 +9,7 @@ const ProfileContacts = (props) => {
     if (targetSocialNetworks.includes(key) && contacts.hasOwnProperty(key)) {
       targetContacts.push(
         <p className={`ProfileContacts__${key}`} key={key}>
-          <a href={contacts[key]}>
-            {contacts[key]}
-            {key}
-          </a>
+          <a href={contacts[key]}>{contacts[key]}</a>
         </p>
       );
     }

@@ -5,16 +5,16 @@ import { TextArea } from "../../Common/FormsControls/FormControl";
 import styles from "./../../Profile/ProfileDescription/ProfileDescription.module.scss";
 import targetSocialNetworks from "./../../../global/globalSettings";
 
-const ProfileDataForm = ({ handleSubmit }) => {
+const ProfileDataForm = ({ handleSubmit, error }) => {
   let targetContacts = [];
   for (let key in targetSocialNetworks) {
     targetContacts.push(
       <div key={key} className={styles.contact}>
         <Field
-          name={targetSocialNetworks[key]}
+          name={"contacts." + targetSocialNetworks[key]}
           component={Input}
           type="text"
-          placeholder={`your ${targetSocialNetworks[key]}`}
+          placeholder={`Your ${targetSocialNetworks[key]}`}
         />
       </div>
     );
@@ -23,7 +23,8 @@ const ProfileDataForm = ({ handleSubmit }) => {
     <form onSubmit={handleSubmit} className={styles.wrapper}>
       <div className={styles.description}>
         <p className={styles.title}>Profile info</p>
-        <button>Save</button>
+        <button className={styles.save}>Save</button>
+        {error && <div className={styles.summaryError}>{error}</div>}
         <p>Full name:</p>
         <div>
           <Field name="fullName" component={Input} type="text" />
@@ -48,10 +49,10 @@ const ProfileDataForm = ({ handleSubmit }) => {
           />
         </div>
       </div>
-      {/* <div>
+      <div>
         <p>Contacts</p>
         {targetContacts}
-      </div> */}
+      </div>
     </form>
   );
 };
