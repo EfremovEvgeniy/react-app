@@ -1,31 +1,14 @@
-@mixin cocialIcons($text) {
-  &::before {
-    color: #e8436c;
-    display: inline-block;
-    font-family: "Themify";
-    content: $text;
-    margin-right: 5px;
-  }
-  &:hover::before {
-    transform: scale(1.1);
-  }
-}
-
 @mixin centeredItems {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   padding: 15px;
 }
 .wrapper {
   width: 80%;
   display: flex;
-  justify-content: space-between;
-  .edit {
-    position: absolute;
-    width: 100px;
-    height: 20px;
-  }
+  justify-content: space-around;
 }
 .profile {
   display: flex;
@@ -47,40 +30,46 @@
     height: 200px;
     border: 1px solid white;
   }
+  margin-top: 20px;
 }
 .summaryError {
   border: 1px solid red;
   margin-bottom: 10px;
   padding: 5px 20px;
 }
+.ContactsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 15px;
+}
 .contact {
   margin-top: 10px;
 }
-.save {
+.submitButton {
+  position: absolute;
   width: 100px;
-  height: 20px;
+  height: 25px;
+}
+.cancelButton {
+  width: 100px;
+  height: 25px;
+  background-color: red;
+  align-self: center;
+}
+.infoTitle {
+  color: #20e77b;
+  span {
+    color: white;
+    font-style: italic;
+  }
 }
 .description,
 .jobInfo,
 .contacts {
   @include centeredItems;
 }
-.jobInfo {
-  width: 25%;
-}
 
-.facebook {
-  @include cocialIcons("\e634");
-}
-
-.instagram {
-  @include cocialIcons("\e73d");
-}
-
-.twitter {
-  @include cocialIcons("\e72a");
-}
-
-.github {
-  @include cocialIcons("\e73f");
+.description {
+  align-items: flex-start;
 }

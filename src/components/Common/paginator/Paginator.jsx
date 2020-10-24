@@ -22,13 +22,22 @@ const Paginator = ({
   return (
     <div className={styles.pagesWrapper}>
       {portionNumber > 1 && (
-        <button
-          onClick={() => {
-            setPortionNumber(portionNumber - 1);
-          }}
-        >
-          Prev
-        </button>
+        <div>
+          <button
+            onClick={() => {
+              setPortionNumber(1);
+            }}
+          >
+            First
+          </button>
+          <button
+            onClick={() => {
+              setPortionNumber(portionNumber - 1);
+            }}
+          >
+            Prev
+          </button>
+        </div>
       )}
       {pages
         .filter(
@@ -46,13 +55,22 @@ const Paginator = ({
           </span>
         ))}
       {portionCount > portionNumber && (
-        <button
-          onClick={() => {
-            setPortionNumber(portionNumber + 1);
-          }}
-        >
-          Next
-        </button>
+        <div>
+          <button
+            onClick={() => {
+              setPortionNumber(portionNumber + 1);
+            }}
+          >
+            Next
+          </button>
+          <button
+            onClick={() => {
+              setPortionNumber(portionCount);
+            }}
+          >
+            Last
+          </button>
+        </div>
       )}
     </div>
   );

@@ -23,17 +23,17 @@ const ProfileDataForm = ({ handleSubmit, error }) => {
     <form onSubmit={handleSubmit} className={styles.wrapper}>
       <div className={styles.description}>
         <p className={styles.title}>Profile info</p>
-        <button className={styles.save}>Save</button>
         {error && <div className={styles.summaryError}>{error}</div>}
-        <p>Full name:</p>
+        <p className={styles.infoTitle}>Full name:</p>
         <div>
           <Field name="fullName" component={Input} type="text" />
         </div>
-        <p>About me:</p>
+        <p className={styles.infoTitle}>About me:</p>
         <div>
           <Field name="aboutMe" component={Input} type="text" />
         </div>
       </div>
+      <button className={styles.submitButton}>Save</button>
       <div className={styles.jobInfo}>
         <p className={styles.title}>Job Info</p>
         <p>Are you looking for a job?</p>
@@ -49,8 +49,8 @@ const ProfileDataForm = ({ handleSubmit, error }) => {
           />
         </div>
       </div>
-      <div>
-        <p>Contacts</p>
+      <div className={styles.ContactsWrapper}>
+        <p className={styles.title}>Contacts</p>
         {targetContacts}
       </div>
     </form>

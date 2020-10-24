@@ -4,23 +4,18 @@
   justify-content: center;
   span {
     display: inline-block;
-    margin-left: 20px;
+    margin: 0px 10px;
     cursor: pointer;
     &:hover {
       color: #00c960;
     }
-  }
-  span:first-child {
-    margin: 0;
   }
 }
 .selectedPage {
   font-weight: bold;
   color: #00c960;
 }
-button:last-child {
-  margin: 0px 20px;
-}
-button:first-child {
-  margin: 0;
+
+button {
+  margin: 0px 10px;
 }

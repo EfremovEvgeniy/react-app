@@ -3,10 +3,10 @@ import styles from "./ProfileDescription.module.scss";
 import Loader from "../../Loader/Loader";
 import JobInfo from "./JobInfo/JobInfo";
 import ProfileContacts from "./ProfileContacts/ProfileContacts";
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import UploadFile from "../../forms/uploadFile/UploadFile";
 import { useState } from "react";
 import ProfileDataReduxForm from "../../forms/profileData/ProfileDataForm";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileDescription = (props) => {
   let defaultAva = "https://avatarfiles.alphacoders.com/693/69306.jpg";
@@ -29,6 +29,10 @@ const ProfileDescription = (props) => {
     props.saveProfile(formData).then(() => {
       setEditMode(false);
     });
+  };
+
+  const deactivateEditMode = () => {
+    setEditMode(false);
   };
 
   return (
@@ -54,6 +58,11 @@ const ProfileDescription = (props) => {
           status={props.status}
         />
       )}
+      {editMode && (
+        <button onClick={deactivateEditMode} className={styles.cancelButton}>
+          Cancel
+        </button>
+      )}
     </div>
   );
 };
@@ -63,18 +72,27 @@ const ProfileData = (props) => {
     <div className={styles.wrapper}>
       <div className={styles.description}>
         <p className={styles.title}>Profile info</p>
-        {props.isOwner && (
-          <button onClick={props.activateEditMode} className={styles.edit}>
-            Edit
-          </button>
+        <p className={styles.infoTitle}>
+          Full name: <span>{props.profile.fullName}</span>
+        </p>
+        {props.profile.aboutMe && (
+          <p className={styles.infoTitle}>
+            About me: <span>{props.profile.aboutMe}</span>
+          </p>
         )}
-        <p>Full name: {props.profile.fullName}</p>
-        {props.profile.aboutMe && <p>About me: {props.profile.aboutMe}</p>}
         <ProfileStatusWithHooks
           status={props.status}
           updateProfileStatus={props.updateProfileStatus}
         />
       </div>
+      {props.isOwner && (
+        <button
+          onClick={props.activateEditMode}
+          className={styles.submitButton}
+        >
+          Edit
+        </button>
+      )}
       <JobInfo
         lookingForAJob={props.profile.lookingForAJob}
         lookingForAJobDescription={props.profile.lookingForAJobDescription}

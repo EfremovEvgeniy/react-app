@@ -4,13 +4,8 @@ import styles from "./UploadFile.module.scss";
 const UploadFile = (props) => {
   return (
     <div className={styles.buttonWrapper}>
-      <span className={styles.label}>Upload File</span>
-      <input
-        type="file"
-        name="upload"
-        placeholder="Upload File"
-        onChange={props.onMainPhotoSelected}
-      />
+      <span className={styles.label}>Upload Avatar</span>
+      <input type="file" name="upload" onChange={props.onMainPhotoSelected} />
     </div>
   );
 };

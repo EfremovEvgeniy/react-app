@@ -2,9 +2,6 @@ import React, { Suspense } from "react";
 import "./App.scss";
 import { Route, withRouter, Redirect, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Music from "./components/Music/Music";
-import News from "./components/News/News";
-import Settings from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -51,10 +48,7 @@ class App extends React.Component {
                   );
                 }}
               ></Route>
-              <Route path="/news" render={() => <News />} />
-              <Route path="/music" render={() => <Music />} />
               <Route path="/users" render={() => <UsersContainer />} />
-              <Route path="/settings" render={() => <Settings />} />
             </div>
           </main>
         </div>
@@ -76,7 +70,7 @@ let AppContainer = compose(
   })
 )(App);
 
-const MainApp = (props) => {
+const MainApp = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>

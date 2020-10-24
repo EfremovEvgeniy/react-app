@@ -25,10 +25,10 @@ const LoginForm = ({ handleSubmit, error }) => {
           validate={[requiredField]}
         />
       </div>
-      <div className={styles.checkboxWrapper}>
+      {/* <div className={styles.checkboxWrapper}>
         <Field name="RememberMe" component={Input} type="checkbox" />
         <label>remember me</label>
-      </div>
+      </div> */}
       {error && <div className={styles.summaryError}>{error}</div>}
       <div>
         <button>Login</button>
